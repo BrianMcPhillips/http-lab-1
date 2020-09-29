@@ -20,7 +20,18 @@ describe('createResponse', () => {
   it('returns red h1', async() => {
     const response = await request(app)
       .get('/red');
-    expect(response.text).toEqual('<h1>red</h1>');
+    expect(response.text).toEqual('<html><body><h1>red</h1></body></html>');
+  });
+  
+  it('returns green h1', async() => {
+    const response = await request(app)
+      .get('/green');
+    expect(response.text).toEqual('<html><body><h1>green</h1></body></html>');
   });
 
+  it('returns blue h1', async() => {
+    const response = await request(app)
+      .get('/blue');
+    expect(response.text).toEqual('<html><body><h1>blue</h1></body></html>');
+  });
 });
